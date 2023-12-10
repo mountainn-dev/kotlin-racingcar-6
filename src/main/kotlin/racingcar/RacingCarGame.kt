@@ -9,10 +9,15 @@ class RacingCarGame {
 
     fun run() {
         setUpGameEnvironment()
+        playGame()
     }
 
     private fun setUpGameEnvironment() {
         carController.setCars()
         gameController.setTryCount()
+    }
+
+    private fun playGame() {
+        carController.moveCars()
     }
 }
