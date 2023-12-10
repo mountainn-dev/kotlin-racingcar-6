@@ -11,8 +11,10 @@ class RacingCarGame {
         setUpGameEnvironment()
 
         while (carController.moveCount() != gameController.tryCount()) {
-            playGame()
+            playRound()
         }
+
+        setWinner()
     }
 
     private fun setUpGameEnvironment() {
@@ -20,7 +22,11 @@ class RacingCarGame {
         gameController.setTryCount()
     }
 
-    private fun playGame() {
+    private fun playRound() {
         carController.moveCars()
+    }
+
+    private fun setWinner() {
+        gameController.setWinners(carController.mostMovedCars())
     }
 }

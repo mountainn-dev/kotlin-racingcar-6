@@ -39,13 +39,22 @@ class CarController {
 
     private fun moveCarsWhenRandomValueOverMovingValue() {
         cars.map {
-            if (generatedRandomMovingValue() > Constants.MIN_CAR_MOVING_VALUE) it.move()
+            if (generatedRandomMovingValue() >= Constants.MIN_CAR_MOVING_VALUE) it.move()
         }
     }
 
     private fun showResult() {
         outputView.printResultMoving(cars)
         outputView.printBlankLine()
+    }
+
+    fun mostMovedCars(): List<Car> {
+        val mostMovedCars = mutableListOf<Car>()
+        val maxPosition = cars.maxOf { it.position() }
+
+        cars.map { if (it.position() == maxPosition) mostMovedCars.add(it) }
+
+        return mostMovedCars
     }
 
     private fun getNamesFromUser() = inputView.readNames()
