@@ -9,7 +9,10 @@ class RacingCarGame {
 
     fun run() {
         setUpGameEnvironment()
-        playGame()
+
+        while (carController.moveCount() != gameController.tryCount()) {
+            playGame()
+        }
     }
 
     private fun setUpGameEnvironment() {

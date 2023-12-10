@@ -9,6 +9,8 @@ class GameController {
     private val outputView = OutputView()
     private var tryCount = 0
 
+    fun tryCount() = tryCount
+
     fun setTryCount() {
         requestTryCount()
         tryCount = validatedTryCount()

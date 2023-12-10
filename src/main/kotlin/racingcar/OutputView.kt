@@ -19,4 +19,8 @@ class OutputView {
             println(String.format(Result.RESULT_CAR_MOVING, it.name(), Result.CAR_MOVING_TRACE.repeat(it.position())))
         }
     }
+
+    fun printBlankLine() {
+        println()
+    }
 }

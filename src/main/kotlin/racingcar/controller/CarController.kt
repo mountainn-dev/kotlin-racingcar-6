@@ -10,6 +10,9 @@ class CarController {
     private val inputView = InputView()
     private val outputView = OutputView()
     private lateinit var cars: List<Car>
+    private var moveCount = 0
+
+    fun moveCount() = moveCount
 
     fun setCars() {
         requestCarNames()
@@ -31,6 +34,7 @@ class CarController {
     fun moveCars() {
         moveCarsWhenRandomValueOverMovingValue()
         showResult()
+        moveCount++
     }
 
     private fun moveCarsWhenRandomValueOverMovingValue() {
@@ -41,6 +45,7 @@ class CarController {
 
     private fun showResult() {
         outputView.printResultMoving(cars)
+        outputView.printBlankLine()
     }
 
     private fun getNamesFromUser() = inputView.readNames()
