@@ -4,7 +4,8 @@
 ## 기능 목록
 - [x] 자동차 이름을 정한다. - CarController#setCars()
   - [x] 값이 올바르지 않은 형태인 경우 예외가 발생하고 프로그램이 종료된다. - InputValidator, Car
-- [ ] 총 시도 횟수를 정한다.
+- [x] 총 시도 횟수를 정한다. - GameController#setTryCount()
+  - [x] 값이 올바르지 않은 형태인 경우 예외가 발생하고 프로그램이 종료된다. - InputValidator, GameController#validatedTryCount()
 - [ ] 경주를 진행한다.
 - [ ] 우승자를 선정한다.
 
@@ -25,4 +26,4 @@
   - 이름의 길이가 1 ~ 5 자를 벗어난 경우
 - 총 시도 횟수
   - 문자를 입력한 경우
-  - 0 이 입력된 경우
+  - 1 보다 작은 값을 입력한 경우
