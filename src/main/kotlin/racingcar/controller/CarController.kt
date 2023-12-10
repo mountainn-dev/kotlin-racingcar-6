@@ -11,20 +11,20 @@ class CarController {
 
     fun setCars() {
         requestCarNames()
-        cars = getCarsFromUser()
+        cars = validatedCars()
     }
 
     private fun requestCarNames() {
         outputView.printRequestCarNamesMessage()
     }
 
-    private fun getCarsFromUser(): List<Car> {
+    private fun validatedCars(): List<Car> {
         val cars = mutableListOf<Car>()
 
-        getCarNamesFromUser().map { cars.add(Car(it)) }
+        getNamesFromUser().map { cars.add(Car(it)) }
 
         return cars
     }
 
-    private fun getCarNamesFromUser() = inputView.readNames()
+    private fun getNamesFromUser() = inputView.readNames()
 }
