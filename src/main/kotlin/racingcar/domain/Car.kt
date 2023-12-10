@@ -1,4 +1,10 @@
 package racingcar.domain
 
-class Car {
+import racingcar.constants.Constants
+
+class Car(private val name: String) {
+
+    init {
+        require(name.length in Constants.MIN_CAR_NAME_LENGTH..Constants.MAX_CAR_NAME_LENGTH)
+    }
 }
