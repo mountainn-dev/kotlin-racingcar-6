@@ -16,14 +16,6 @@ class CarController {
         cars = validatedCars()
     }
 
-    fun moveCars() {
-        cars.map {
-            val number = Randoms.pickNumberInRange(Constants.MIN_CAR_RANDOM_VALUE, Constants.MAX_CAR_RANDOM_VALUE)
-
-            if (number > Constants.MIN_CAR_MOVING_VALUE) it.move()
-        }
-    }
-
     private fun requestCarNames() {
         outputView.printRequestCarNamesMessage()
     }
@@ -36,5 +28,23 @@ class CarController {
         return cars
     }
 
+    fun moveCars() {
+        moveCarsWhenRandomValueOverMovingValue()
+        showResult()
+    }
+
+    private fun moveCarsWhenRandomValueOverMovingValue() {
+        cars.map {
+            if (generatedRandomMovingValue() > Constants.MIN_CAR_MOVING_VALUE) it.move()
+        }
+    }
+
+    private fun showResult() {
+        outputView.printResultMoving(cars)
+    }
+
     private fun getNamesFromUser() = inputView.readNames()
+    private fun generatedRandomMovingValue() = Randoms.pickNumberInRange(
+        Constants.MIN_CAR_RANDOM_VALUE, Constants.MAX_CAR_RANDOM_VALUE
+    )
 }

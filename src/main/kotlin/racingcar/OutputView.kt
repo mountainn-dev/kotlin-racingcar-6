@@ -1,6 +1,8 @@
 package racingcar
 
 import racingcar.constants.Request
+import racingcar.constants.Result
+import racingcar.domain.Car
 
 class OutputView {
 
@@ -10,5 +12,11 @@ class OutputView {
 
     fun printRequestTryCountMessage() {
         println(Request.REQUEST_TRY_COUNT_MESSAGE)
+    }
+
+    fun printResultMoving(cars: List<Car>) {
+        cars.map {
+            println(String.format(Result.RESULT_CAR_MOVING, it.name(), Result.CAR_MOVING_TRACE.repeat(it.position())))
+        }
     }
 }

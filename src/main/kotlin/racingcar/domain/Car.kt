@@ -9,7 +9,9 @@ class Car(private val name: String) {
         require(name.length in Constants.MIN_CAR_NAME_LENGTH..Constants.MAX_CAR_NAME_LENGTH)
     }
 
-    fun getPosition() = position
+    fun name() = name
+
+    fun position() = position
 
     fun move() {
         position++
